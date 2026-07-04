@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-display-src);
+  --font-sans: var(--font-body-src);
+}
+
+@theme {
+  /* Paleta Horely: marfil cálido, espresso, verde botella y ámbar miel */
+  --color-paper: #faf6ee;
+  --color-card: #fffdf8;
+  --color-ink: #221a14;
+  --color-ink-soft: #6b5d4f;
+  --color-pine: #1e4d40;
+  --color-pine-deep: #143830;
+  --color-pine-mist: #e6eee9;
+  --color-honey: #c67c3b;
+  --color-honey-deep: #a35f24;
+  --color-honey-soft: #f6e9d5;
+  --color-sand: #efe6d8;
+  --color-line: #e6dbc9;
+  --color-clay: #b4472f;
+  --color-clay-soft: #f7e4dd;
+
+  --animate-rise: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise-slow: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Horarios y precios siempre con números tabulares */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pine);
+  outline-offset: 2px;
+}
+
+/* Muescas laterales del ticket de turno, a la altura de la línea de corte */
+.ticket-notch {
+  --notch-bg: var(--color-paper);
+  position: relative;
+}
+.ticket-notch::before,
+.ticket-notch::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--notch-bg);
+  border: 1px solid var(--color-line);
+}
+.ticket-notch::before {
+  left: -13px;
+}
+.ticket-notch::after {
+  right: -13px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
