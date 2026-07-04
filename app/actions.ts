@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { getAvailableSlots } from "@/lib/availability";
 
@@ -33,6 +34,9 @@ export async function createBooking(input: BookingInput): Promise<BookingResult>
   if (!customerName || !customerPhone) {
     return { ok: false, error: "Completá tu nombre y teléfono para confirmar." };
   }
+  if (customerName.length > 80 || customerPhone.length > 30) {
+    return { ok: false, error: "Revisá tu nombre y teléfono: son demasiado largos." };
+  }
 
   const startsAt = new Date(input.startsAtISO);
   if (isNaN(startsAt.getTime())) {
@@ -56,15 +60,36 @@ export async function createBooking(input: BookingInput): Promise<BookingResult>
     };
   }
 
-  const appointment = await prisma.appointment.create({
-    data: {
-      startsAt,
-      customerName,
-      customerPhone,
-      serviceId: service.id,
-      professionalId: professional.id,
-    },
+  // Un turno cancelado libera el horario, pero su fila ocuparía la clave única
+  await prisma.appointment.deleteMany({
+    where: { professionalId: professional.id, startsAt, status: "cancelled" },
   });
+
+  // La restricción única [professionalId, startsAt] cierra la carrera entre
+  // la verificación de disponibilidad y la creación del turno
+  let appointment;
+  try {
+    appointment = await prisma.appointment.create({
+      data: {
+        startsAt,
+        customerName,
+        customerPhone,
+        serviceId: service.id,
+        professionalId: professional.id,
+      },
+    });
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2002"
+    ) {
+      return {
+        ok: false,
+        error: "Ese horario se acaba de ocupar. Elegí otro, por favor.",
+      };
+    }
+    throw error;
+  }
 
   revalidatePath("/admin");
 

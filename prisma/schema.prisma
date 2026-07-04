@@ -36,6 +36,6 @@ model Appointment {
   professionalId String
   createdAt      DateTime     @default(now())
 
+  @@unique([professionalId, startsAt])
   @@index([startsAt])
-  @@index([professionalId, startsAt])
 }

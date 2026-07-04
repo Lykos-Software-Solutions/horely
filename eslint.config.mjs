@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Carpeta local de memoria de sesión, no es código del proyecto
+    ".remember/**",
   ]),
 ]);
 
