@@ -2,8 +2,11 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+// Con --if-empty solo seedea si la base no tiene datos (para producción)
+const ifEmpty = process.argv.includes("--if-empty");
+
 // PRNG con semilla fija para que el seed sea reproducible
-function mulberry32(seed: number) {
+function mulberry32(seed) {
   return () => {
     seed |= 0;
     seed = (seed + 0x6d2b79f5) | 0;
@@ -14,7 +17,7 @@ function mulberry32(seed: number) {
 }
 const rand = mulberry32(20260703);
 
-const pick = <T,>(arr: T[]) => arr[Math.floor(rand() * arr.length)];
+const pick = (arr) => arr[Math.floor(rand() * arr.length)];
 
 const CUSTOMERS = [
   "Mateo González",
@@ -45,6 +48,15 @@ function phone() {
 }
 
 async function main() {
+  if (ifEmpty) {
+    const existing =
+      (await prisma.professional.count()) + (await prisma.appointment.count());
+    if (existing > 0) {
+      console.log("La base ya tiene datos: seed omitido.");
+      return;
+    }
+  }
+
   await prisma.appointment.deleteMany();
   await prisma.service.deleteMany();
   await prisma.professional.deleteMany();
@@ -102,15 +114,8 @@ async function main() {
   // Horarios pico deliberados: 11:00 y 18:00 concentran más turnos
   const hourPool = [10, 11, 11, 11, 12, 13, 14, 15, 16, 17, 18, 18, 18];
 
-  const busy = new Map<string, Array<[number, number]>>();
-  const appointments: Array<{
-    startsAt: Date;
-    status: string;
-    customerName: string;
-    customerPhone: string;
-    serviceId: string;
-    professionalId: string;
-  }> = [];
+  const busy = new Map();
+  const appointments = [];
 
   let created = 0;
   let guard = 0;

@@ -73,6 +73,23 @@ npm run db:seed
 El seed genera los turnos en fechas relativas a hoy, así la agenda siempre se
 ve poblada.
 
+## Deploy en producción (Dokploy)
+
+El proyecto está preparado para correr en [Dokploy](https://dokploy.com/) con
+SQLite sobre un volumen persistente:
+
+- **Variable de entorno**: `DATABASE_URL=file:/app/data/horely.db`
+- **Volumen**: montar un volumen en `/app/data` (ahí vive la base SQLite)
+- **Build**: `npm run build` — corre `prisma generate` y después `next build`
+- **Start**: `npm run start` — aplica las migraciones pendientes con
+  `prisma migrate deploy`, ejecuta el seed **solo si la base está vacía**
+  (primer deploy), y levanta `next start`
+
+En cada redeploy las migraciones se aplican automáticamente y los datos del
+volumen se conservan: el seed nunca pisa una base con datos. Para regenerar
+los datos de ejemplo en producción, borrá el archivo de la base del volumen
+y redeployá.
+
 ## Estructura
 
 ```
@@ -89,5 +106,5 @@ lib/
   format.ts             # Fechas y moneda en es-AR
 prisma/
   schema.prisma         # Professional, Service, Appointment
-  seed.ts               # Datos de ejemplo
+  seed.mjs              # Datos de ejemplo (--if-empty en producción)
 ```
