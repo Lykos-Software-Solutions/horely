@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Marca Horely: la "o" ámbar del wordmark como reloj, sobre verde botella -->
+  <rect width="64" height="64" rx="14" fill="#1E4D40"/>
+  <circle cx="32" cy="32" r="17.5" fill="none" stroke="#C67C3B" stroke-width="6"/>
+  <path d="M32 23.5V32l6.5 4.5" stroke="#FAF6EE" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
