@@ -15,7 +15,25 @@ Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
 
 ## Capturas
 
-_Pendientes — próximamente capturas de la vista de reserva, la agenda y las métricas._
+### Vista pública de reserva (mobile)
+
+| Elegir servicio | Día y horario | Ticket de confirmación |
+| :---: | :---: | :---: |
+| ![Paso 1: elegir servicio](docs/reserva-servicio.png) | ![Paso 3: elegir día y horario](docs/reserva-horario.png) | ![Turno confirmado](docs/reserva-ticket.png) |
+
+### Panel de administración
+
+**Agenda del día**, con acciones para completar o cancelar turnos:
+
+![Agenda del día](docs/admin-agenda.png)
+
+**Vista semanal**:
+
+![Agenda de la semana](docs/admin-semana.png)
+
+**Métricas** de la semana — turnos, ingresos estimados, servicio más pedido y horarios pico:
+
+![Métricas](docs/admin-metricas.png)
 
 ## Stack
 
