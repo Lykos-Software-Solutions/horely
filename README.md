@@ -1,5 +1,7 @@
 # Horely
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
 (**Barbería Norte**) con dos caras:
 
@@ -10,8 +12,9 @@ Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
   acciones para marcar turnos como completados o cancelados, y métricas simples
   (turnos de la semana, servicio más pedido, horarios pico).
 
-> Demo sin autenticación ni pagos: `/admin` entra directo y los turnos se
-> abonan en el local.
+> **Demo / showcase.** Sin autenticación ni pagos: `/admin` entra directo y los
+> turnos se abonan en el local. No uses esto en producción sin auth, backups y
+> control de acceso.
 
 ## Capturas
 
@@ -108,3 +111,7 @@ prisma/
   schema.prisma         # Professional, Service, Appointment
   seed.mjs              # Datos de ejemplo (--if-empty en producción)
 ```
+
+## Licencia
+
+[MIT](./LICENSE) © 2026 Lykos Software Solutions
