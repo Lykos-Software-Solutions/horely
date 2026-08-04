@@ -21,6 +21,18 @@ Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
 > Este repositorio es un showcase técnico y demostración comercial. **No contiene autenticación, pasarela de pagos ni multi-tenant**. El acceso a `/admin` es público y los turnos se abonan en el local.  
 > **No utilizar en producción sin implementar autenticación, backups, control de acceso y SSL.**
 
+---
+
+### 🌐 English Summary
+
+**Horely** is an online appointment booking platform built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Prisma**, and **SQLite**.
+
+Features include:
+- **Public Booking View (`/`)**: Mobile-first design where clients select services, staff members, dates, and time slots to receive a confirmation ticket.
+- **Admin Panel (`/`/admin)**: Real-time daily and weekly agenda management with appointment status controls (completed/canceled) and key analytics (weekly bookings, top services, peak hours).
+
+*Created as a technical portfolio showcase by [Lykos Software Solutions](https://lykos.com.ar).*
+
 ## Capturas
 
 ### Vista pública de reserva (mobile)
