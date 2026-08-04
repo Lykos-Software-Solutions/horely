@@ -17,9 +17,9 @@ Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
   acciones para marcar turnos como completados o cancelados, y métricas simples
   (turnos de la semana, servicio más pedido, horarios pico).
 
-> **Demo / showcase.** Sin autenticación ni pagos: `/admin` entra directo y los
-> turnos se abonan en el local. No uses esto en producción sin auth, backups y
-> control de acceso.
+> ⚠️ **Demo / Portfolio Showcase por [Lykos Software Solutions](https://lykos.com.ar)**  
+> Este repositorio es un showcase técnico y demostración comercial. **No contiene autenticación, pasarela de pagos ni multi-tenant**. El acceso a `/admin` es público y los turnos se abonan en el local.  
+> **No utilizar en producción sin implementar autenticación, backups, control de acceso y SSL.**
 
 ## Capturas
 
