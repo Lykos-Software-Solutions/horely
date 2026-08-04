@@ -13,9 +13,28 @@ const body = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Horely · Turnos online",
+  metadataBase: new URL("https://horely.lykos.com.ar"),
+  title: {
+    default: "Horely · Sistema de Reserva de Turnos Online",
+    template: "%s · Horely",
+  },
   description:
-    "Reservá tu turno en Barbería Norte en menos de un minuto. Horely, turnos online sin vueltas.",
+    "Sistema web de reserva de turnos online y panel de administración en tiempo real. Demo por Lykos Software Solutions.",
+  openGraph: {
+    title: "Horely · Sistema de Reserva de Turnos Online",
+    description:
+      "Plataforma de reserva de turnos online y panel de administración en tiempo real por Lykos Software Solutions.",
+    url: "https://horely.lykos.com.ar",
+    siteName: "Horely",
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Horely · Sistema de Reserva de Turnos Online",
+    description:
+      "Plataforma de reserva de turnos online y panel de administración en tiempo real por Lykos Software Solutions.",
+  },
 };
 
 export default function RootLayout({
