@@ -1,6 +1,11 @@
 # Horely
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.19-2D3748?style=flat&logo=prisma)](https://www.prisma.io/)
+[![Dokploy](https://img.shields.io/badge/Deploy-Dokploy-0052CC?style=flat)](https://dokploy.com/)
 
 Plataforma de reserva de turnos online. El demo incluye un negocio de ejemplo
 (**Barbería Norte**) con dos caras:
