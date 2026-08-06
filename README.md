@@ -18,7 +18,7 @@ Plataforma de reserva de turnos online ([Demo en vivo](https://horely.lykos.com.
   acciones para marcar turnos como completados o cancelados, y métricas simples
   (turnos de la semana, servicio más pedido, horarios pico).
 
-> ⚠️ **Demo / Portfolio Showcase por [Lykos Software Solutions](https://lykos.com.ar)**  
+> ⚠️ **Demo / Portfolio Showcase por [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar)**  
 > Este repositorio es un showcase técnico y demostración comercial. **No contiene autenticación, pasarela de pagos ni multi-tenant**. El acceso a `/admin` es público y los turnos se abonan en el local.  
 > **No utilizar en producción sin implementar autenticación, backups, control de acceso y SSL.**
 
@@ -32,7 +32,7 @@ Features include:
 - **Public Booking View (`/`)**: Mobile-first design where clients select services, staff members, dates, and time slots to receive a confirmation ticket.
 - **Admin Panel (`/`/admin)**: Real-time daily and weekly agenda management with appointment status controls (completed/canceled) and key analytics (weekly bookings, top services, peak hours).
 
-*Created as a technical portfolio showcase by [Lykos Software Solutions](https://lykos.com.ar).*
+*Created as a technical portfolio showcase by [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar).*
 
 ## Capturas
 
@@ -132,4 +132,4 @@ prisma/
 
 ## Licencia
 
-[MIT](./LICENSE) © 2026 Lykos Software Solutions
+[MIT](./LICENSE) © 2026 Lykos - Performance-Driven Web Solutions
