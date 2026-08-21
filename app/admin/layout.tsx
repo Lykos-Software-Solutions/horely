@@ -5,6 +5,12 @@ import { AdminNav } from "@/components/admin/AdminNav";
 export const metadata: Metadata = {
   title: "Horely · Panel",
   description: "Panel de administración de Barbería Norte.",
+  // El panel es publico a proposito: es parte de la demo y se entra sin login.
+  // Pero /admin?date= y /admin/semana?semana= responden 200 para cualquier
+  // fecha, y cada vista enlaza a la anterior y la siguiente, asi que el
+  // crawler tiene URLs infinitas para seguir. Google indexo 402 en nueve dias.
+  // nofollow corta la cadena de prev/next, que es lo que las genera.
+  robots: { index: false, follow: false },
 };
 
 export default function AdminLayout({
