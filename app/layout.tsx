@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     locale: "es_AR",
     type: "website",
   },
+  // Todo el sitio es una demo publica: no hay contenido real que valga la pena
+  // indexar y las URLs de /admin ya habian ensuciado Search Console. noindex en
+  // el root se hereda a todas las rutas. Sin robots.txt Disallow a proposito:
+  // bloquear el crawl impide que Google lea el noindex y desindexe.
+  robots: { index: false, follow: false },
   twitter: {
     card: "summary_large_image",
     title: "Horely · Sistema de Reserva de Turnos Online",
